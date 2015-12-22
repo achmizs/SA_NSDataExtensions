@@ -1,5 +1,5 @@
 //
-//  NSData+SA_NSDataExtensions.h
+//  NSData+SA_NSDataExtensions.m
 //
 //  Copyright (c) 2015 Said Achmiz.
 //
