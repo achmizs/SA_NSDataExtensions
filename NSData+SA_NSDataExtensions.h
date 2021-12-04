@@ -90,6 +90,16 @@
 /** Returns an NSData object containing a blank C string (i.e. a byte sequence
 	of length 1, containing the null character '\0').
  */
-+(NSData *)dataWithBlankCString;
++(NSData *) dataWithBlankCString;
+
+/** Returns an NSData object containing bytes copied from the given C string
+	(sans the null terminator).
+ */
++(NSData *) dataFromCString:(const char *)cString;
+
+/** Returns an NSData object containing the bytes of the given C string
+	(sans the null terminator).
+ */
++(NSData *) dataWithCString:(char *)cString;
 
 @end
