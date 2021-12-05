@@ -15,11 +15,11 @@
 	return (((char*) self.bytes)[self.length - 1] == '\0');
 }
 
--(const char *) SA_terminatedCString {
-	return self.SA_dataWithTerminatedCString.bytes;
+-(const char *) terminatedCString {
+	return self.dataWithTerminatedCString.bytes;
 }
 
--(NSData *) SA_dataWithTerminatedCString {
+-(NSData *) dataWithTerminatedCString {
 	if (self.length == 0) {
 		return [NSData dataWithBytes:"\0" 
 							  length:1];
@@ -33,23 +33,6 @@
 		
 		return [NSData dataWithBytesNoCopy:terminated_string_buffer 
 									length:(self.length + 1) 
-							  freeWhenDone:YES];
-	}
-}
-
--(const char *) SA_unterminatedByteString {
-	return self.SA_dataWithUnterminatedByteString.bytes;
-}
-
--(NSData *) SA_dataWithUnterminatedByteString {
-	if (self.length == 0 || self.isNullTerminated == NO) {
-		return self;
-	} else {
-		char* unterminated_string_buffer = malloc(self.length - 1);
-		[self getBytes:unterminated_string_buffer length:self.length - 1];
-		
-		return [NSData dataWithBytesNoCopy:unterminated_string_buffer 
-									length:(self.length - 1) 
 							  freeWhenDone:YES];
 	}
 }

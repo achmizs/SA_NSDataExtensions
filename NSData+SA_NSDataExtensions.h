@@ -30,7 +30,7 @@
 	null-terminated, the returned pointer will point to bytes managed by a 
 	copy of the receiver (and the bytes of the copy will be null-terminated).
  */
-@property (readonly) const char *SA_terminatedCString;
+@property (readonly) const char *terminatedCString;
 
 /**	Returns data containing the stored bytes as a null-terminated C string
 	(byte array).
@@ -40,35 +40,7 @@
 	reference to a fresh copy of the receiver (a copy that contains a 
 	null-terminated byte array, of course).
  */
-@property (readonly) NSData *SA_dataWithTerminatedCString;
-
-/**	Returns the stored bytes as an non-null-terminated byte array.
- 
-	If the stored data was not null-terminated to begin with, the returned 
-	pointer will be a pointer to the bytes managed by the receiver. If the 
-	stored data was null-terminated, the returned pointer will point to bytes
-	managed by a copy of the receiver (and the bytes of the copy will not be 
-	null-terminated; but see NOTE).
- 
-	NOTE: If the receiver's *last* byte is null, the bytes pointed to by the
-	returned pointer will have that null stripped; but if there are any more
-	null bytes prior to that last null, they will remain untouched!
- */
-@property (readonly) const char *SA_unterminatedByteString;
-
-/**	Returns data containing the stored bytes as a non-null-terminated byte 
-	array.
- 
-	If the stored data was not null-terminated to begin with, this method simply
-	returns the receiver. If the stored data was null-terminated, this method 
-	returns a reference to a fresh copy of the receiver (a copy that contains a
-	non-null-terminated byte array, of course; but see NOTE).
- 
-	NOTE: If the receiver's *last* byte is null, the bytes managed by the
-	returned object will have that null stripped; but if there are any more
-	null bytes prior to that last null, they will remain untouched!
- */
-@property (readonly) NSData *SA_dataWithUnterminatedByteString;
+@property (readonly) NSData *dataWithTerminatedCString;
 
 /** Returns an NSData object containing a blank C string (i.e. a byte sequence
 	of length 1, containing the null character '\0').
