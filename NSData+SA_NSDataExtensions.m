@@ -37,6 +37,30 @@
 	}
 }
 
+-(NSRange) startRange {
+	return NSMakeRange(0, 0);
+}
+
+-(NSRange) fullRange {
+	return NSMakeRange(0, self.length);
+}
+
+-(NSRange) endRange {
+	return NSMakeRange(self.length, 0);
+}
+
+-(NSRange) rangeAfterRange:(NSRange)aRange {
+	return NSMakeRange(NSMaxRange(aRange), self.length - NSMaxRange(aRange));
+}
+
+-(NSRange) rangeFromEndOfRange:(NSRange)aRange {
+	return NSMakeRange(NSMaxRange(aRange) - 1, self.length - NSMaxRange(aRange) + 1);
+}
+
+-(NSRange) rangeToEndFrom:(NSRange)aRange {
+	return NSMakeRange(aRange.location, self.length - aRange.location);
+}
+
 +(NSData *) dataWithBlankCString {
 	return [NSData dataWithBytes:"\0" 
 						  length:1];

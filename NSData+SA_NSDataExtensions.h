@@ -42,6 +42,17 @@
  */
 @property (readonly) NSData *dataWithTerminatedCString;
 
+/*	Range manipulation.
+ */
+
+@property (readonly) NSRange startRange;
+@property (readonly) NSRange fullRange;
+@property (readonly) NSRange endRange;
+
+-(NSRange) rangeAfterRange:(NSRange)aRange;
+-(NSRange) rangeFromEndOfRange:(NSRange)aRange;
+-(NSRange) rangeToEndFrom:(NSRange)aRange;
+
 /** Returns an NSData object containing a blank C string (i.e. a byte sequence
 	of length 1, containing the null character '\0').
  */
